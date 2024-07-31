@@ -1,5 +1,3 @@
-
-
 let computerChoice; 
 let humanChoice;
 let humanScore = 0;
@@ -14,10 +12,6 @@ const playerScoreDisplay = document.querySelector("#player-score");
 const computerScoreDisplay = document.querySelector("#computer-score");
 const roundResults = document.querySelector(".round-result");
 const result = document.querySelector("#result");
-
-scoreContainer.appendChild(playerScoreDisplay);
-scoreContainer.appendChild(computerScoreDisplay);
-
 
 playGame();
 
@@ -72,45 +66,37 @@ function playRound(humanChoice){
 
     computerChoice = getComputerChoice();
 
-    if(humanChoice == "rock" && computerChoice == "rock" || humanChoice == "paper" && computerChoice == "paper" ||
-        humanChoice == "scissors" && computerChoice == "scissors" ){
+    if(humanChoice == computerChoice ){
             result.textContent = (`Draw!, player chose ${humanChoice} and computer chose ${computerChoice}`);
-        
         return;
     }
 
     if (humanChoice == "rock" && computerChoice == "scissors"){
         humanScore += 1;
-        
         result.textContent = `you win! ${humanChoice} beats ${computerChoice}`;
         return;
     }else if (humanChoice == "rock" && computerChoice == "paper"){
         computerScore += 1;
-       // computerScoreDisplay.textContent = 'ComputerScore: ' + humanScore;
         result.textContent = `you lose! ${computerChoice} beats ${humanChoice}`;
         return;
     }
 
     if(humanChoice == "scissors" && computerChoice == "paper"){
         humanScore += 1;
-        //playerScoreDisplay.textContent = 'PlayerScore: ' + humanScore;
         result.textContent = `you win! ${humanChoice} beats ${computerChoice}`;
         return;
     }else if (humanChoice == "scissors" && computerChoice == "rock"){
         computerScore += 1;
-        //computerScoreDisplay.textContent = 'ComputerScore: ' + humanScore;
         result.textContent = `you lose! ${computerChoice} beats ${humanChoice}`;
         return;
     }
 
     if(humanChoice == "paper" && computerChoice == "rock"){
         humanScore += 1;
-       // playerScoreDisplay.textContent = 'PlayerScore: ' + humanScore;
        result.textContent = `you win! ${humanChoice} beats ${computerChoice}`;
         return;
     }else{
         computerScore += 1;
-       // computerScoreDisplay.textContent = 'ComputerScore: ' + humanScore;
         result.textContent = `you lose! ${computerChoice} beats ${humanChoice}`;
         return;
     }
